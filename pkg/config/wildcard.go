@@ -13,6 +13,7 @@ type Wildcard struct {
 	Search   string        `yaml:"search"`
 	Owner    WildcardOwner `yaml:"owner"`
 	Archived bool          `yaml:"archived"`
+	Owned    bool          `yaml:"owned"`
 }
 
 // WildcardOwner ..

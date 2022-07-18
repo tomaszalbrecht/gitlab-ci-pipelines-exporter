@@ -47,6 +47,7 @@ func (c *Client) ListProjects(ctx context.Context, w config.Wildcard) ([]schemas
 		"wildcard-owner-name":              w.Owner.Name,
 		"wildcard-owner-include-subgroups": w.Owner.IncludeSubgroups,
 		"wildcard-archived":                w.Archived,
+		"wildcard-owned":                   w.Owned,
 	}
 	log.WithFields(logFields).Debug("listing all projects from wildcard")
 
@@ -108,6 +109,7 @@ func (c *Client) ListProjects(ctx context.Context, w config.Wildcard) ([]schemas
 					ListOptions: listOptions,
 					Archived:    &w.Archived,
 					Search:      &w.Search,
+					Owned:       &w.Owned,
 				},
 				goGitlab.WithContext(ctx),
 			)
