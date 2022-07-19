@@ -84,9 +84,10 @@ func (c *Client) ListProjects(ctx context.Context, w config.Wildcard) ([]schemas
 			gps, resp, err = c.Projects.ListUserProjects(
 				w.Owner.Name,
 				&goGitlab.ListProjectsOptions{
-					Archived:    &w.Archived,
-					ListOptions: listOptions,
-					Search:      &w.Search,
+					Archived:         &w.Archived,
+					ListOptions:      listOptions,
+					Search:           &w.Search,
+					SearchNamespaces: &w.SearchNamespaces,
 				},
 				goGitlab.WithContext(ctx),
 			)
@@ -99,6 +100,7 @@ func (c *Client) ListProjects(ctx context.Context, w config.Wildcard) ([]schemas
 					IncludeSubGroups: &w.Owner.IncludeSubgroups,
 					ListOptions:      listOptions,
 					Search:           &w.Search,
+					SearchNamespaces: &w.SearchNamespaces,
 				},
 				goGitlab.WithContext(ctx),
 			)
@@ -106,10 +108,11 @@ func (c *Client) ListProjects(ctx context.Context, w config.Wildcard) ([]schemas
 			// List all visible projects
 			gps, resp, err = c.Projects.ListProjects(
 				&goGitlab.ListProjectsOptions{
-					ListOptions: listOptions,
-					Archived:    &w.Archived,
-					Search:      &w.Search,
-					Owned:       &w.Owned,
+					ListOptions:      listOptions,
+					Archived:         &w.Archived,
+					Search:           &w.Search,
+					SearchNamespaces: &w.SearchNamespaces,
+					Owned:            &w.Owned,
 				},
 				goGitlab.WithContext(ctx),
 			)

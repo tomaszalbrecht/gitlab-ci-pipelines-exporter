@@ -10,10 +10,11 @@ type Wildcard struct {
 	// will be discovered using this wildcard.
 	ProjectParameters `yaml:",inline"`
 
-	Search   string        `yaml:"search"`
-	Owner    WildcardOwner `yaml:"owner"`
-	Archived bool          `yaml:"archived"`
-	Owned    bool          `yaml:"owned"`
+	Search           string        `yaml:"search"`
+	SearchNamespaces bool          `yaml:"search_namespaces"`
+	Owner            WildcardOwner `yaml:"owner"`
+	Archived         bool          `yaml:"archived"`
+	Owned            bool          `yaml:"owned"`
 }
 
 // WildcardOwner ..
