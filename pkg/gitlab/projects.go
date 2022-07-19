@@ -100,7 +100,6 @@ func (c *Client) ListProjects(ctx context.Context, w config.Wildcard) ([]schemas
 					IncludeSubGroups: &w.Owner.IncludeSubgroups,
 					ListOptions:      listOptions,
 					Search:           &w.Search,
-					SearchNamespaces: &w.SearchNamespaces,
 				},
 				goGitlab.WithContext(ctx),
 			)
