@@ -18,7 +18,7 @@ import (
 	"go.opentelemetry.io/otel/attribute"
 )
 
-const bufferSize = 3000
+const bufferSize = 5000
 
 // TaskController holds task related clients.
 type TaskController struct {
