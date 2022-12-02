@@ -67,6 +67,12 @@ func (c *Client) GetProjectPipelines(
 	if options.Scope != nil {
 		fields["scope"] = *options.Scope
 	}
+	if options.UpdatedAfter == nil {
+		currentTime := time.Now()
+        last3Month := currentTime.AddDate(0,-3,0)
+		options.UpdatedAfter = last3Month
+		field["UpdatedAfter"] = *options.UpdatedAfter
+	}
 
 	fields["page"] = options.Page
 	log.WithFields(fields).Trace("listing project pipelines")
